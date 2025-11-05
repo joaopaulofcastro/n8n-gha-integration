@@ -1,0 +1,14 @@
+package main
+
+import (
+    "fmt"
+    "net/http"
+)
+
+func main() {
+    http.handleFunc("/", func(w http.ResponseWriter, r *http.Reuest) {
+        fmt.Fprintf(w, "Hello", r.URL.Path)
+    })
+
+    http.ListenAndServe(":8081", nil)
+}
